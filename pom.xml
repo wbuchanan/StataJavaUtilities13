@@ -6,7 +6,7 @@
 
 	<!-- This contains the overall package metadata -->
 	<groupId>org.paces-consulting</groupId>
-	<artifactId>stata-java</artifactId>
+	<artifactId>stata-java13</artifactId>
 	<version>13.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>${project.groupId}:${project.artifactId}</name>
@@ -16,9 +16,9 @@
 
 	<!-- Information regarding Source Control Management -->
 	<scm>
-		<connection>scm:git:git@github.com:wbuchanan/StataJavaUtilities.git</connection>
-		<developerConnection>scm:git:git@github.com:wbuchanan/StataJavaUtilities.git</developerConnection>
-		<url>git@github.com:wbuchanan/StataJavaUtilities.git</url>
+		<connection>scm:git:git@github.com:wbuchanan/StataJavaUtilities13.git</connection>
+		<developerConnection>scm:git:git@github.com:wbuchanan/StataJavaUtilities13.git</developerConnection>
+		<url>git@github.com:wbuchanan/StataJavaUtilities13.git</url>
 	</scm>
 
 	<!-- Information regarding organization publishing the plugin -->
@@ -87,7 +87,7 @@
 	<!-- Defines how Maven should build the Java binaries -->
 	<build>
 		<defaultGoal>jar</defaultGoal>
-		<finalName>StataJavaUtilities</finalName>
+		<finalName>StataJavaUtilities13</finalName>
 		<plugins>
 
 			<!-- Sets the JDK to 1.8 -->

@@ -21,12 +21,12 @@ public class MataMatrix {
 	/***
 	 * Number of columns in the matrix
 	 */
-	public long ncols;
+	public Integer ncols;
 
 	/***
 	 * Number of rows in the matrix
 	 */
-	public long nrows;
+	public Integer nrows;
 
 	/***
 	 * Name of the Mata matrix
@@ -36,17 +36,17 @@ public class MataMatrix {
 	/***
 	 * List of column indices
 	 */
-	public List<Long> colindex;
+	public List<Integer> colindex;
 
 	/***
 	 * List of row indices
 	 */
-	public List<Long> rowindex;
+	public List<Integer> rowindex;
 
 	/***
 	 * POJO representation of the Mata matrix
 	 */
-	public Map<Long, Map<Long, Object>> matrix;
+	public Map<Integer, Map<Integer, Object>> matrix;
 
 	/***
 	 * Constructor method used to build the MataMatrix object
@@ -99,14 +99,14 @@ public class MataMatrix {
 	 *                      variable.
 	 */
 	public void setNcols(String matrixName) {
-		ncols = Mata.getMataColTotal(matrixName);
+		ncols = Mata.getMataCol(matrixName);
 	}
 
 	/***
 	 * Getter method to access the total number of columns
-	 * @return A Long object with the value of the number of columns
+	 * @return A Integer object with the value of the number of columns
 	 */
-	public Long getNcols() {
+	public Integer getNcols() {
 		return this.ncols;
 	}
 
@@ -116,14 +116,14 @@ public class MataMatrix {
 	 *                      variable.
 	 */
 	public void setNrows(String matrixName) {
-		ncols = Mata.getMataRowTotal(matrixName);
+		ncols = Mata.getMataRow(matrixName);
 	}
 
 	/***
 	 * Getter method to access the total number of rows
-	 * @return A Long object with the value of the number of rows
+	 * @return A Integer object with the value of the number of rows
 	 */
-	public Long getNrows() {
+	public Integer getNrows() {
 		return this.nrows;
 	}
 
@@ -131,13 +131,13 @@ public class MataMatrix {
 	 * Setter method for the colindex member variable
 	 * @param ncol The number of columns in the Matrix previously named
 	 */
-	public void setColIndex(Long ncol) {
+	public void setColIndex(Integer ncol) {
 
 		// Initialize a temporary index object
-		List<Long> tmpidx = new ArrayList<Long>();
+		List<Integer> tmpidx = new ArrayList<>();
 
 		// Loop over the values 1 - ncol
-		for (long i = 1; i <= ncol; i++) {
+		for (Integer i = 1; i <= ncol; i++) {
 
 			// Add the value to the List object
 			tmpidx.add(i);
@@ -154,7 +154,7 @@ public class MataMatrix {
 	 * @return A List of long values identifying columns of the previously
 	 * named Mata matrix
 	 */
-	public List<Long> getColIndex() {
+	public List<Integer> getColIndex() {
 		return this.colindex;
 	}
 
@@ -162,13 +162,13 @@ public class MataMatrix {
 	 * Setter method for the rowindex member variable
 	 * @param nrow The number of rows in the Matrix previously named
 	 */
-	public void setRowIndex(Long nrow) {
+	public void setRowIndex(Integer nrow) {
 
 		// Initialize a temporary index object
-		List<Long> tmpidx = new ArrayList<Long>();
+		List<Integer> tmpidx = new ArrayList<>();
 
 		// Loop over the values 1 - nrow
-		for (long i = 1; i <= nrow; i++) {
+		for (Integer i = 1; i <= nrow; i++) {
 
 			// Add the value to the List object
 			tmpidx.add(i);
@@ -185,7 +185,7 @@ public class MataMatrix {
 	 * @return A List of long objects identifying individual rows of the Mata
 	 * Matrix
 	 */
-	public List<Long> getRowIndex() {
+	public List<Integer> getRowIndex() {
 		return this.rowindex;
 	}
 
@@ -194,19 +194,19 @@ public class MataMatrix {
 	 * @param observations A List of row indices
 	 * @param variables A List of column indices
 	 */
-	public void setMatrix(List<Long> observations, List<Long> variables) {
+	public void setMatrix(List<Integer> observations, List<Integer> variables) {
 
 		// Initializes a Map object to store a Map object for each row
-		Map<Long, Map<Long, Object>> tmpMatrix = new HashMap<Long, Map<Long, Object>>();
+		Map<Integer, Map<Integer, Object>> tmpMatrix = new HashMap<>();
 
 		// Initializes a Map object to store column values for a single row
-		Map<Long, Object> tmprow = new HashMap<Long, Object>();
+		Map<Integer, Object> tmprow = new HashMap<>();
 
 		// Loop over the rows of the matrix
-		for (Long m : observations) {
+		for (Integer m : observations) {
 
 			// Loop over the columns of the matrix
-			for (Long n : variables) {
+			for (Integer n : variables) {
 
 				// Add values from the column for the given row to the Map
 				// object
@@ -241,7 +241,7 @@ public class MataMatrix {
 	 * value of class Object regardless of whether the type is complex, real,
 	 * or string.
 	 */
-	public Object getMatrixData(Long colid, Long rowid) {
+	public Object getMatrixData(Integer colid, Integer rowid) {
 
 		// If the getMataEltype method returns an empty string return an error
 		if ("".equals(Mata.getMataEltype(this.matName))) {
